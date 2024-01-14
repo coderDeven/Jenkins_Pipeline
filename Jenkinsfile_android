@@ -1,0 +1,8 @@
+pipeline {
+    agent { label 'deven' }
+    stages {
+        stage('build android') {
+            echo "build android"
+        }
+    }
+}
