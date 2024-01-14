@@ -2,10 +2,14 @@ pipeline {
     agent { label 'deven' }
     stages {
         stage('build iOS') {
-            echo "build iOS"
+            steps {
+                echo "build iOS"
+            }
         }
         stage('build android') {
-            echo "build android"
+            steps {
+                echo "build android"
+            }
         }
     }
 }
