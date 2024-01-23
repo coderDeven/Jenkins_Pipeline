@@ -13,6 +13,7 @@ pipeline {
                 echo "gameid : ${params.game_id}"
                 sh "./iOS/Sdebug.sh ${params.game_id} ${params.token} ${params.push_enable}"
                 sh "./iOS/Sdebug.sh ${game_id} ${token} ${push_enable}"
+                sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json"
             }
         }
     }
