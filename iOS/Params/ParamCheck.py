@@ -130,8 +130,8 @@ if __name__ == '__main__':
     push_enable = sys.argv[3]
     firebase_enable = sys.argv[4]
     JenkinsJobParam._game_id = game_id
-    JenkinsJobParam._push_enable = push_enable
-    JenkinsJobParam._firebase_enable = firebase_enable
+    JenkinsJobParam._push_enable = push_enable.lower() == 'true'
+    JenkinsJobParam._firebase_enable = firebase_enable.lower() == 'true'
     
     # 2. 校验 DDCommon
     ddcommon_valid = CGParamValidator.validate_parse_ddcommon(ddcommon_path)
