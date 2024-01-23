@@ -31,3 +31,6 @@ if __name__ == '__main__':
     print("job_params : ")
     print(job_params)
     
+    print("after set:")
+    print(JenkinsJobParam._firebase_enable)
+    
