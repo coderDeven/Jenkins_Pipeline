@@ -75,8 +75,11 @@ class CGParamValidator:
     def check_push_tag(cls):
         print("JenkinsJobParam._push_enable")
         print(JenkinsJobParam._push_enable)
+        print(type(JenkinsJobParam._push_enable))
         print("DDCommonParam._push_enable")
         print(DDCommonParam._push_enable)
+        print(type(DDCommonParam._push_enable))
+        
         if JenkinsJobParam._push_enable != DDCommonParam._push_enable:
             print("❎ CGerror : DDcommon 中的 push tag 与 Jenkins 设置的 push tag 不一致 !")
             return False
@@ -133,7 +136,7 @@ if __name__ == '__main__':
     # 2. 校验 DDCommon
     ddcommon_valid = CGParamValidator.validate_parse_ddcommon(ddcommon_path)
     if ddcommon_valid == False:
-        print("❎ CGError : ddCommon 校验失败 ❎")
+        print("❎ CGError : ddCommon 校验失败. 终止任务 ❎")
         sys.exit(CG_Invalid_DDCommon)
     else :
         print("CGPass : ddCommon 校验通过 ✅")
@@ -141,7 +144,7 @@ if __name__ == '__main__':
     # 3. ddCommon 与 Jenkins 参数比对是否匹配
     param_match = CGParamValidator.check_jenkins_match_ddcommon()
     if param_match == False:
-        print("❎ CGError : ddCommon 与 Jenkins 参数不匹配 ❎")
+        print("❎ CGError : ddCommon 与 Jenkins 参数不匹配. 终止任务 ❎ ")
         sys.exit(CG_DDcommon_Jenkins_Param_Not_Match)
     else :
         print("CGPass : ddCommon 与 Jenkins 参数匹配 ✅")
