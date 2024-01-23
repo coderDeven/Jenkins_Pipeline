@@ -72,14 +72,7 @@ class CGParamValidator:
         return True
         
     @classmethod
-    def check_push_tag(cls):
-        print("JenkinsJobParam._push_enable")
-        print(JenkinsJobParam._push_enable)
-        print(type(JenkinsJobParam._push_enable))
-        print("DDCommonParam._push_enable")
-        print(DDCommonParam._push_enable)
-        print(type(DDCommonParam._push_enable))
-        
+    def check_push_tag(cls):        
         if JenkinsJobParam._push_enable != DDCommonParam._push_enable:
             print("❎ CGerror : DDcommon 中的 push tag 与 Jenkins 设置的 push tag 不一致 !")
             return False
@@ -87,10 +80,6 @@ class CGParamValidator:
     
     @classmethod
     def check_firebase_tag(cls):
-        print("JenkinsJobParam._firebase_enable")
-        print(JenkinsJobParam._firebase_enable)
-        print("DDCommonParam._firebase_enable")
-        print(DDCommonParam._firebase_enable)
         if JenkinsJobParam._firebase_enable != DDCommonParam._firebase_enable:
             print("❎ CGerror : DDcommon 中的 firebase tag 与 Jenkins 设置的 firebase tag 不一致 !")
             return False
@@ -98,10 +87,6 @@ class CGParamValidator:
     
     @classmethod
     def check_game_id(cls):
-        print("JenkinsJobParam._game_id")
-        print(JenkinsJobParam._game_id)
-        print("DDCommonParam._game_id")
-        print(DDCommonParam._game_id)
         if JenkinsJobParam._game_id != DDCommonParam._game_id:
             print("❎ CGerror : DDcommon 中的 game_id 与 Jenkins 设置的 game_id 不一致 !")
             return False
@@ -126,6 +111,7 @@ if __name__ == '__main__':
     ddcommon_path = sys.argv[1]
 
     # job param 
+    # shell 向 python 传递的 bool 值，在python 中是 str 类型.
     game_id = sys.argv[2]
     push_enable = sys.argv[3]
     firebase_enable = sys.argv[4]

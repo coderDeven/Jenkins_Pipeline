@@ -14,11 +14,10 @@
 # res=`python3 Utils/AESParser.py $cipher_key $cipher_content 'pod_group_token'`
 # echo $res
 
-game_id=$1
-push_enable=$2
-token=$3
 
-echo "SDebug.sh"
-echo $game_id
-echo $push_enable
-echo $token
+# 测试修改 config.json
+
+
+echo "直接在脚本中使用 job param :"
+echo "${WORKSPACE}"
+echo "${game_id}"

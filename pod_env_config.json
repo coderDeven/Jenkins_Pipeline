@@ -1,0 +1,6 @@
+{
+    "pod_env": "dev",
+    "notgood": {
+        "unfair": "platform"
+    }
+}

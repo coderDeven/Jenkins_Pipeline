@@ -1,14 +1,18 @@
 pipeline {
     agent { label 'deven' }
     stages {
-        stage('Stage One') {
+        stage('export Path') {
             steps {
-                echo "build iOS"
+                echo "export path --> 未开始"
+            }
+        }
+        stage('pod env setup'){
+            steps {
+                echo "设置 pod 环境 --> 未完成，待测试"
             }
         }
         stage('Setup Job Param'){
             steps {
-                // sh "python3 iOS/Params/JenkinsJobParam.py ${game_id} ${push_enable} ${firebase_enable} ${params}"
                 sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
             }
         }

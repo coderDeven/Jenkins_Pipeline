@@ -18,7 +18,6 @@ fi
 # 将 Jenkins 选定的 Pod 环境参数 （dev/prod）写入到配置文件中.
 python3 $change_pod_env_config_script $pod_env_config_path $pod_env
 
-
 # 删除所有 Spec 
 repoList=`pod repo list`
 echo ${repoList}
