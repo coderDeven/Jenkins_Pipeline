@@ -6,6 +6,9 @@ pipeline {
                 echo "build iOS"
             }
         }
+        stage('Setup Job Param'){
+            sh "python3 iOS/Params/JenkinsJobParam.py ${game_id} ${push_enable} ${firebase_enable} ${params}"
+        }
         stage('Stage getParam') {
             steps {
                 // sh './iOS/Sdebug.sh' $game_id $push_enable $token
