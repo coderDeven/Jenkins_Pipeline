@@ -115,12 +115,20 @@ class CGParamValidator:
       
 
 if __name__ == '__main__':
-    if len(sys.argv) < 1:
+    if len(sys.argv) < 4:
         print('CGError : param missing', flush=True)
         sys.exit(1)
     
     # 1. ddcommon path
     ddcommon_path = sys.argv[1]
+
+    # job param 
+    game_id = sys.argv[2]
+    push_enable = sys.argv[3]
+    firebase_enable = sys.argv[4]
+    JenkinsJobParam._game_id = game_id
+    JenkinsJobParam._push_enable = push_enable
+    JenkinsJobParam._firebase_enable = firebase_enable
     
     # 2. 校验 DDCommon
     ddcommon_valid = CGParamValidator.validate_parse_ddcommon(ddcommon_path)
