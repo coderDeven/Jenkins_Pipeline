@@ -1,0 +1,65 @@
+def ad_option = "topon"
+pipeline {
+    agent { label 'dd' }
+    
+    environment {
+        deven_name = 'feng'
+    }
+    
+    stages {
+
+        stage('Parse Params') {
+            steps {
+                script {
+                    echo "解析 Jenkins 中参数，关联参数等"
+                    ad_option = "max"
+                }
+            }
+        }
+
+        stage('Get Game Info') {
+            steps {
+                echo "获取证书信息"
+                echo "获取 China Tag"
+                echo ad_option
+            }   
+        }
+
+        stage('setup_pod_env') {
+            steps {
+                echo "设置 Pod 依赖"
+                echo "deven name ${deven_name}"
+                
+                script {
+                    deven_name = "luck"
+                }
+            }
+        }
+        
+        stage('Replace DDCommon') {
+            steps {
+                echo "替换 ddCommon"
+                echo "deven name ${deven_name}"
+            }
+        }
+
+        stage('Set Unity Params') {
+            steps {
+                echo "选择 Unity 版本"
+            }
+        }
+
+        stage('Unity Export') {
+            steps {
+                echo "Unity 导出工程"
+            }
+        }
+
+        stage('iOS Archive') {
+            steps {
+                echo "Xcode 编译出包"
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,10 @@
+{
+   "dd" : {
+      "export_path" : "/Users/platform/.rvm/rubies/ruby-2.6.3/bin:/Users/platform/.rvm/rubies/ruby-2.6.3/bin/pod:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH",
+      "apple_cert_path" : "/Users/platform/.jenkins/workspace/Apple_Certificate_Notice",
+      "password" : "funplus"
+   },
+   "deven" : {
+      "apple_cert_path" : "/Users/centurygame/.jenkins/workspace/Apple_Cert_Notice"
+   }
+}
