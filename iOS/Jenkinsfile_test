@@ -8,8 +8,7 @@ pipeline {
         }
         stage('Stage getParam') {
             steps {
-                echo "getParam"
-                sh '$WORKSPACE/iOS/Sdebug.sh' $game_id $push_enable $token
+                sh '${WORKSPACE}/iOS/Sdebug.sh' $game_id $push_enable $token
             }
         }
     }
