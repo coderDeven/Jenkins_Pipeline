@@ -4,7 +4,7 @@ import json
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from Utils.JSONParser import JSONUtil
-from Params.ParamLoader import CGParamLoader
+from ParamLoader import CGParamLoader
 from DDCommonParam import DDCommonParam
 from JenkinsJobParam import JenkinsJobParam
 
