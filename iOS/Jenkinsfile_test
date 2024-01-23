@@ -7,7 +7,9 @@ pipeline {
             }
         }
         stage('Setup Job Param'){
-            sh "python3 iOS/Params/JenkinsJobParam.py ${game_id} ${push_enable} ${firebase_enable} ${params}"
+            steps {
+                sh "python3 iOS/Params/JenkinsJobParam.py ${game_id} ${push_enable} ${firebase_enable} ${params}"
+            }
         }
         stage('Stage getParam') {
             steps {
