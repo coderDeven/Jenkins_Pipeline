@@ -10,7 +10,7 @@ pipeline {
             steps {
                 // sh './iOS/Sdebug.sh' $game_id $push_enable $token
                 echo "woskspace : ${WORKSPACE}"
-                sh './iOS/Sdebug.sh' $game_id $push_enable $token
+                sh './iOS/Sdebug.sh' $params.game_id $params.push_enable $params.token
             }
         }
     }
