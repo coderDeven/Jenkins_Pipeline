@@ -9,6 +9,7 @@ pipeline {
         stage('pod env setup'){
             steps {
                 echo "设置 pod 环境 --> 未完成，待测试"
+                
             }
         }
         stage('Setup Job Param'){
@@ -24,6 +25,11 @@ pipeline {
                 sh "./iOS/Sdebug.sh ${params.game_id} ${params.token} ${params.push_enable}"
                 sh "./iOS/Sdebug.sh ${game_id} ${token} ${push_enable}"
                 // sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
+            }
+        }
+        stage('test') {
+            steps {
+                sh "./iOS/Sdebug.sh"
             }
         }
     }
