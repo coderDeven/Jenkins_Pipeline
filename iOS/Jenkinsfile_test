@@ -11,7 +11,7 @@ pipeline {
                 // sh './iOS/Sdebug.sh' $game_id $push_enable $token
                 echo "woskspace : ${WORKSPACE}"
                 echo "gameid : ${params.game_id}"
-                // sh './iOS/Sdebug.sh' "${params.game_id}" "${params.push_enable}" "${params.token}"
+                sh './iOS/Sdebug.sh ${params.game_id}' 
             }
         }
     }
