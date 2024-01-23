@@ -38,9 +38,6 @@ class CGParamValidator:
         encrypted_unity_config = JSONUtil().get_value_from_json(ddcommon_dict, unity_config_key)
         plain_unity_config = CGParamLoader.load_unity_config(encrypt_unity_config_key, encrypted_unity_config)
         
-        print("unity config dict : ")
-        print(plain_unity_config)
-        print(type(plain_unity_config))
         # if plain_unity_config is not dict:
         if not isinstance(plain_unity_config, dict):
             print("❎ CGError : DDCommon 中 unityConfig 解析失败 !")
@@ -76,6 +73,10 @@ class CGParamValidator:
         
     @classmethod
     def check_push_tag(cls):
+        print("JenkinsJobParam._push_enable")
+        print(JenkinsJobParam._push_enable)
+        print("DDCommonParam._push_enable")
+        print(DDCommonParam._push_enable)
         if JenkinsJobParam._push_enable != DDCommonParam._push_enable:
             print("❎ CGerror : DDcommon 中的 push tag 与 Jenkins 设置的 push tag 不一致 !")
             return False
@@ -83,6 +84,10 @@ class CGParamValidator:
     
     @classmethod
     def check_firebase_tag(cls):
+        print("JenkinsJobParam._firebase_enable")
+        print(JenkinsJobParam._firebase_enable)
+        print("DDCommonParam._firebase_enable")
+        print(DDCommonParam._firebase_enable)
         if JenkinsJobParam._firebase_enable != DDCommonParam._firebase_enable:
             print("❎ CGerror : DDcommon 中的 firebase tag 与 Jenkins 设置的 firebase tag 不一致 !")
             return False
@@ -90,6 +95,10 @@ class CGParamValidator:
     
     @classmethod
     def check_game_id(cls):
+        print("JenkinsJobParam._game_id")
+        print(JenkinsJobParam._game_id)
+        print("DDCommonParam._game_id")
+        print(DDCommonParam._game_id)
         if JenkinsJobParam._game_id != DDCommonParam._game_id:
             print("❎ CGerror : DDcommon 中的 game_id 与 Jenkins 设置的 game_id 不一致 !")
             return False
