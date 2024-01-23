@@ -1,4 +1,16 @@
 pipeline {
-     agent { label 'dd' }
-     
+    agent { label 'deven' }
+    stages {
+        stage('Stage One') {
+            steps {
+                echo "build iOS"
+            }
+        }
+        stage('Stage getParam') {
+            steps {
+                echo "getParam"
+                sh '$WORKSPACE/iOS/Sdebug.sh' $game_id $push_enable $token
+            }
+        }
+    }
 }
