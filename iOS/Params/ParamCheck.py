@@ -7,9 +7,7 @@ from Utils.JSONParser import JSONUtil
 from ParamLoader import CGParamLoader
 from DDCommonParam import DDCommonParam
 from JenkinsJobParam import JenkinsJobParam
-
-CG_Invalid_DDCommon = 11
-CG_DDcommon_Jenkins_Param_Not_Match = 12
+from Base.CGBase import CGErrorCode
 
 class CGParamValidator:
     
@@ -105,7 +103,7 @@ class CGParamValidator:
 if __name__ == '__main__':
     if len(sys.argv) < 4:
         print('CGError : param missing', flush=True)
-        sys.exit(1)
+        sys.exit(CGErrorCode.CG_Missing_Params)
     
     # 1. ddcommon path
     ddcommon_path = sys.argv[1]
@@ -123,7 +121,7 @@ if __name__ == '__main__':
     ddcommon_valid = CGParamValidator.validate_parse_ddcommon(ddcommon_path)
     if ddcommon_valid == False:
         print("❎ CGError : ddCommon 校验失败. 终止任务 ❎")
-        sys.exit(CG_Invalid_DDCommon)
+        sys.exit(CGErrorCode.CG_Invalid_DDCommon)
     else :
         print("CGPass : ddCommon 校验通过 ✅")
     
@@ -131,6 +129,6 @@ if __name__ == '__main__':
     param_match = CGParamValidator.check_jenkins_match_ddcommon()
     if param_match == False:
         print("❎ CGError : ddCommon 与 Jenkins 参数不匹配. 终止任务 ❎ ")
-        sys.exit(CG_DDcommon_Jenkins_Param_Not_Match)
+        sys.exit(CGErrorCode.CG_DDcommon_Jenkins_Param_Not_Match)
     else :
         print("CGPass : ddCommon 与 Jenkins 参数匹配 ✅")

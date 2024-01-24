@@ -1,6 +1,8 @@
 import os
 import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from DDCommonParam import DDCommonParam
+from Base.CGBase import CGErrorCode
 
 class JenkinsJobParam:
     _game_id = None
@@ -18,7 +20,7 @@ class JenkinsJobParam:
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         print('CGError : param missing', flush=True)
-        sys.exit(1)
+        sys.exit(CGErrorCode.CG_Missing_Params)
         
     game_id = sys.argv[1]
     push_enable = sys.argv[2]

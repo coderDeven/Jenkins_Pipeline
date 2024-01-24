@@ -1,9 +1,19 @@
 pipeline {
     agent { label 'deven' }
+    environment {
+        AD_TYPE = 0
+    }
     stages {
         stage('export_path') {
             steps {
                 sh 'python3 iOS/Environment/SetupEnv.py'
+            }
+        }
+        stage('param_parse') {
+            steps {
+                script {
+                    AD_TYPE = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
+                }
             }
         }
         stage('param_check') {
@@ -22,7 +32,7 @@ pipeline {
                 sh "./iOS/AppleCert/FetchCertInfo.sh ${game_id} ${push_enable}"
             }
         }
-        stage('stage getParam') {
+        stage('aaa') {
             steps {
                 echo "good"
             }
