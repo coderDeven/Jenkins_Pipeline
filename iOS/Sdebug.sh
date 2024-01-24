@@ -21,4 +21,6 @@
 echo "直接在脚本中使用 job param :"
 echo "${WORKSPACE}"
 echo "${game_id}"
+
+// Error : 不能用 params
 ehco "${params.game_id}"
