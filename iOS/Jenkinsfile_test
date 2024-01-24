@@ -31,13 +31,15 @@ pipeline {
         stage('test') {
             steps {
                 sh "./iOS/Sdebug.sh"
+                echo "${params.game_id}"
+                echo "${game_id}"
             }
         }
     }
 
     post {
         always {
-            echo "execution after stages"
+            echo "always execution after stages"
         }
         success {
             echo "pipeline execution success"
