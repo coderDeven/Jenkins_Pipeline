@@ -23,4 +23,4 @@ echo "${WORKSPACE}"
 echo "${game_id}"
 
 # Error : 不能用 params
-ehco "${params.game_id}"
+# ehco "${params.game_id}"
