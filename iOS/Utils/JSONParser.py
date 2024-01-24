@@ -49,6 +49,15 @@ class JSONUtil:
 
         with open(json_path, 'w') as file:
             json.dump(data, file, indent=4)
+
+    @classmethod
+    def write_json_to_file(cls, json_dict, file_path):
+        try:
+            with open(file_path, 'w') as file:
+                json.dump(json_dict, file, indent=4)
+            print(f"JSON written to file: {file_path}")
+        except Exception as e:
+            print(f"CGError : Failed to write JSON to file: {file_path} - {e}")
             
     @classmethod
     def pretty(cls, d):
@@ -78,7 +87,7 @@ if __name__ == '__main__':
         json_path = sys.argv[2]
         # key :
         key_path = sys.argv[3]
-        result = JSONUtil.get_value_from_json(json_path, key_path)
+        result = JSONUtil.get_value_from_json_path(json_path, key_path)
         print(result)
     
     if method_name.__eq__("-set"):

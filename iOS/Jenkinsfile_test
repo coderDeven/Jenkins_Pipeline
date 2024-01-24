@@ -1,36 +1,51 @@
 pipeline {
     agent { label 'deven' }
     stages {
-        stage('export Path') {
+        stage('export_path') {
             steps {
-                echo "export path --> 未开始"
+                sh 'python3 iOS/Environment/SetupEnv.py'
             }
         }
-        stage('pod env setup'){
-            steps {
-                echo "设置 pod 环境 --> 未完成，待测试"
-                
-            }
-        }
-        stage('Setup Job Param'){
+        stage('param_check') {
             steps {
                 sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
             }
         }
-        stage('Stage getParam') {
+        stage('pod_env_setup') {
             steps {
-                // sh './iOS/Sdebug.sh' $game_id $push_enable $token
-                echo "woskspace : ${WORKSPACE}"
-                echo "gameid : ${params.game_id}"
-                sh "./iOS/Sdebug.sh ${params.game_id} ${params.token} ${params.push_enable}"
-                sh "./iOS/Sdebug.sh ${game_id} ${token} ${push_enable}"
-                // sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
+                echo "设置 pod 环境 --> 未完成，待测试"
             }
         }
+        stage('fetch_certificate_info') {
+            steps {
+                echo "获取证书信息"
+                sh "./iOS/AppleCert/FetchCertInfo.sh ${game_id} ${push_enable}"
+            }
+        }
+        stage('stage getParam') {
+            steps {
+                echo "good"
+            }
+        }
+
         stage('test') {
             steps {
                 sh "./iOS/Sdebug.sh"
             }
         }
+    }
+
+    post {
+        always {
+            echo "execution after stages"
+        }
+        success {
+            echo "pipeline execution success"
+        }
+
+        failure {
+            echo "pipeline execution failed"
+        }
+
     }
 }

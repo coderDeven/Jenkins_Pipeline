@@ -7,26 +7,26 @@
 # agent=$3 
 agent=deven
 
-app_id=$1
-push=$2
+game_id=$1
+push_enable=$2
 
-apple_cert_path=`python3 Utils/JSONParser.py -get Config/Agent/agentConfig_iOS.json ${agent}.apple_cert_path`
+apple_cert_path=`python3 iOS/Utils/JSONParser.py -get ./iOS/Config/Agent/AgentConfig.json "${agent}.apple_cert_path"`
 echo $apple_cert_path
 
 cer_path="${apple_cert_path}/check"
 get_cer_info_script="${apple_cert_path}/getCerInfo.py"
 
-game_key=$(python3 $get_cer_info_script $cer_path $app_id 'game_key')
-bundle_id=$(python3 $get_cer_info_script $cer_path $app_id 'bundle_id')
-team_id=$(python3 $get_cer_info_script $cer_path $app_id 'team_id')
-cert_name=$(python3 $get_cer_info_script $cer_path $app_id 'cer_name')
-provision_uuid=$(python3 $get_cer_info_script $cer_path $app_id 'uuid')
+game_key=$(python3 $get_cer_info_script $cer_path $game_id 'game_key')
+bundle_id=$(python3 $get_cer_info_script $cer_path $game_id 'bundle_id')
+team_id=$(python3 $get_cer_info_script $cer_path $game_id 'team_id')
+cert_name=$(python3 $get_cer_info_script $cer_path $game_id 'cer_name')
+provision_uuid=$(python3 $get_cer_info_script $cer_path $game_id 'uuid')
 
 
-if [ "$push" = false ]; then
+if [ "$push_enable" = false ]; then
 	push_provision_uuid="~" # 如果不开启push功能需要设置一个占位符，以免push_provision参数被下一个占用，导致参数错位
 else  
-	push_provision_uuid=$(python3 $get_cer_info_script $cer_path $app_id 'push_uuid')
+	push_provision_uuid=$(python3 $get_cer_info_script $cer_path $game_id 'push_uuid')
 fi
 
 echo "bundle_id : ${bundle_id} \n"
