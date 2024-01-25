@@ -65,6 +65,9 @@ pipeline {
                     def result = sh(script: "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
                     echo "result : ${result}"
 
+                    Unity_Path = result
+                    echo "Unity_Path: ${Unity_Path}"
+
                 }
             }
         }
