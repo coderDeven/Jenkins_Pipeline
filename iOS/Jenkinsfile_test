@@ -54,7 +54,7 @@ pipeline {
                     // echo "Unity_Path : ${Unity_Path}"
 
                     sh 'iOS/Unity/UnitySetup.sh'
-                    echo "Unity_Path : ${Unity_Path}"
+                    // echo "Unity_Path : ${Unity_Path}"
 
                 }
             }
