@@ -1,4 +1,8 @@
-pod_env=$1
+# external param : pod_env -- from jenkins job 
+
+# 本地测试使用:
+# WORKSPACE=`pwd`
+# pod_env='prod'
 
 # Pod 隔离所需的配置文件和脚本
 pod_env_config_path="$WORKSPACE/Assets/WebPlayerTemplates/dd-sdk-config/pod_env/pod_env_config.json"
@@ -15,54 +19,11 @@ if [ ! -f "$pod_internal_shell_path" ]; then
     exit 1
 fi
 
+# modify pod env 
 # 将 Jenkins 选定的 Pod 环境参数 （dev/prod）写入到配置文件中.
-python3 $change_pod_env_config_script $pod_env_config_path $pod_env
+pod_env_key="pod_env"
 
-# 删除所有 Spec 
-repoList=`pod repo list`
-echo ${repoList}
-dev_pod="platform-sdk/CenturyGameSDKPodSpecInternal.git"
-prod_pod="bitbucket.org/funplus/centurygamesdkpodspec.git"
-gitlab_public_pod="platform-sdk-ios-pod/CenturyGameSDKPodSpecPublic.git"
+json_parser_script="$WORKSPACE/iOS/Utils/JSONParser.py"
+python3 $json_parser_script -set $pod_env_config_path pod_env_key $pod_env
 
-## 删除 Gitlab Public Spec
-if [[ $repoList =~ $gitlab_public_pod ]]
-then
-    echo "本机 Pod Repo 存在 CenturyGameSDKPodSpecPublic -> 移除 Repo !" 
-    updateOutput=`pod repo remove CenturyGameSDKPodSpecPublic`
-    updateRes=$?
-    if [[ $updateRes == 0 ]]
-    then
-        echo "remove CenturyGameSDKPodSpecPublic 执行成功"
-    else
-        echo "remove CenturyGameSDKPodSpecPublic 执行失败" 
-    fi
-fi
-
-## 删除 Gitlab Internal Spec 
-if [[ $repoList =~ $dev_pod ]]
-then
-    echo "本机 Pod Repo 存在 CenturyGameSDKPodSpecInternal -> 移除 Repo !" 
-    updateOutput=`pod repo remove CenturyGameSDKPodSpecInternal`
-    updateRes=$?
-    if [[ $updateRes == 0 ]]
-    then
-        echo "remove CenturyGameSDKPodSpecInternal 执行成功"
-    else
-        echo "remove CenturyGameSDKPodSpecInternal 执行失败" 
-    fi
-fi
-
-## 删除 Bitbucket Prod Spec 
-if [[ $repoList =~ $prod_pod ]]
-then
-    echo "本机 Pod Repo 存在 CenturyGameSDKPodSpec -> 移除 Repo !" 
-    updateOutput=`pod repo remove CenturyGameSDKPodSpec`
-    updateRes=$?
-    if [[ $updateRes == 0 ]]
-    then
-        echo "remove CenturyGameSDKPodSpec 执行成功"
-    else
-        echo "remove CenturyGameSDKPodSpec 执行失败" 
-    fi
-fi
+source ./iOS/Pod/RemoveSDKPodSpec.sh

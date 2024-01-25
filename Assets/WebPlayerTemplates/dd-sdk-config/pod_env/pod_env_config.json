@@ -1,6 +1,4 @@
 {
-    "pod_env": "dev",
-    "notgood": {
-        "unfair": "platform"
-    }
+    "pod_env": "dev12345",
+    "pod_env_key": "prod"
 }

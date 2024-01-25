@@ -14,13 +14,26 @@
 # res=`python3 Utils/AESParser.py $cipher_key $cipher_content 'pod_group_token'`
 # echo $res
 
-
 # 测试修改 config.json
 
-
-echo "直接在脚本中使用 job param :"
-echo "${WORKSPACE}"
-echo "${game_id}"
+# echo "直接在脚本中使用 job param :"
+# echo "${WORKSPACE}"
+# echo "${game_id}"
 
 # Error : 不能用 params
 # ehco "${params.game_id}"
+
+my_string="Hello World"
+
+lowercase_string=$(echo "$my_string" | tr '[:upper:]' '[:lower:]')
+
+echo "Lowercase string: $lowercase_string"
+
+
+repoList=$(echo `pod repo list`)
+echo "repoList: ${repoList}" 
+
+echo "\n\n"
+
+repoList=$(echo "${repoList}" | tr '[:upper:]' '[:lower:]')
+echo $repoList

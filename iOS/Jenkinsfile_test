@@ -10,7 +10,7 @@ pipeline {
             }
         }
         // 用于将 Jenkins 参数进行转换. 对于 Jenkins job 的设置要简单不易出错，通过脚本进行相应转换后再使用.
-        stage('param_parse') {
+        stage('parse_param') {
             steps {
                 script {
                     AD_TYPE = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
@@ -18,22 +18,26 @@ pipeline {
             }
         }
         // 校验 Jenkins 参数与 DDcommon 中参数是否一致.
-        stage('param_check') {
+        stage('check_param') {
             steps {
                 sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
-            }
-        }
-        stage('pod_env_setup') {
-            steps {
-                echo "设置 pod 环境 --> 未完成，待测试"
             }
         }
         stage('fetch_apple_cert_info') {
             steps {
                 echo "获取证书信息"
                 sh "python3 iOS/AppleCert/AppleCertManager.py ${agent_label} ${game_id} ${push_enable}"
+                echo "证书信息如下 : "
             }
         }
+
+        stage('setup_pod_env') {
+            steps {
+                echo "设置 pod 环境 --> 未完成，待测试"
+                sh 'iOS/Pod/SetupPodEnv.sh'
+            }
+        }
+
         stage('aaa') {
             steps {
                 echo "good"
