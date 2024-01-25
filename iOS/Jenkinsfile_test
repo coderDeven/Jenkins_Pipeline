@@ -3,6 +3,7 @@ pipeline {
     environment {
         AD_Type = 0
         Firebase_Switch = "false"
+        Unity_Path = ""
     }
     stages {
         stage('export_path') {
@@ -28,7 +29,7 @@ pipeline {
         stage('fetch_apple_cert_info') {
             steps {
                 echo "获取证书信息 :"
-                sh "python3 iOS/AppleCert/AppleCertManager.py ${agent_label} ${game_id} ${push_enable}"
+                sh "python3 iOS/AppleCert/AppleCertManager.py ${NODE_AGENT_LABEL} ${game_id} ${push_enable}"
             }
         }
 
@@ -39,14 +40,20 @@ pipeline {
             }
         }
 
-        stage('aaa') {
+        stage('setup_unity') {
             steps {
-                echo "good"
-                sh "python3 iOS/Sdebugg.py"
+                script {
+                    echo "设置 Unity 参数"
+                    // sh "python3 iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
+                    echo "确定 Unity 路径"
+                    Unity_Path = $(sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}")
+                    echo "Unity_Path : ${Unity_Path}"
+                }
+               
             }
         }
 
-        stage('test') {
+        stage('xcodebuild') {
             steps {
                 echo "steps 中 必须有 command, 不能为空"
                 // sh "./iOS/Sdebug.sh"

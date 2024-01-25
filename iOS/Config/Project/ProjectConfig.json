@@ -1,3 +1,5 @@
 {
-    "unity_config_decrypt_key": "sctucodm5vc9llbt61j8jpymt4kuilkw"
+    "unity_config_decrypt_key": "sctucodm5vc9llbt61j8jpymt4kuilkw",
+    "unity_build_method" : "BuildSample.BuildiOSArg",
+    "log_file" : "tempArgLog.txt"
 }

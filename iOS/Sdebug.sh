@@ -37,3 +37,8 @@ echo "\n\n"
 
 repoList=$(echo "${repoList}" | tr '[:upper:]' '[:lower:]')
 echo $repoList
+
+$my_string 
+-quit 
+-batchmode 
+-logFile ${}

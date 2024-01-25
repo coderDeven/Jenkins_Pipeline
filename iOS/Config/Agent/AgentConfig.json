@@ -4,8 +4,8 @@
       "apple_cert_path" : "/Users/platform/.jenkins/workspace/Apple_Certificate_Notice",
       "password" : "funplus",
       "unity" : {
-         "unity_2019_path" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
-         "unity_2022_path" : "/Applications/Unity/Hub/Editor/2022.3.9f1/Unity.app/Contents/MacOS/Unity"
+         "unity_2019" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
+         "unity_2022" : "/Applications/Unity/Hub/Editor/2022.3.9f1/Unity.app/Contents/MacOS/Unity"
       }
    },
    "dd" : {
@@ -13,15 +13,15 @@
       "apple_cert_path" : "",
       "password" : "funplus",
       "unity" : {
-         "unity_2019_path" : "",
-         "unity_2022_path" : ""
+         "unity_2019" : "",
+         "unity_2022" : ""
       }
    },
    "deven" : {
       "apple_cert_path" : "/Users/centurygame/.jenkins/workspace/Apple_Cert_Notice",
       "unity" : {
-         "unity_2019_path" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
-         "unity_2022_path" : "/Applications/Unity/Hub/Editor/2022.3.3f1/Unity.app/Contents/MacOS/Unity"
+         "unity_2019" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
+         "unity_2022" : "/Applications/Unity/Hub/Editor/2022.3.3f1/Unity.app/Contents/MacOS/Unity"
       }
    }
 }

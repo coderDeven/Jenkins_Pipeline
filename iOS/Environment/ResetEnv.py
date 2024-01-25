@@ -13,7 +13,7 @@ class BuildEnv:
         
 
 if __name__ == '__main':
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         print("CGError : 重置环境, 缺少参数")
         sys.exit(CGErrorCode.CG_Missing_Params)
     
