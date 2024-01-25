@@ -24,7 +24,7 @@ if __name__ == "__main__":
     
     method_name = sys.argv[1]
     if not method_name.__contains__('-'):
-        sys.exit(arg='CGError : method name not specified !')
+        sys.exit('CGError : method name not specified !')
     
     
     if method_name.__eq__("-adoption"):

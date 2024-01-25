@@ -3,7 +3,7 @@ import os
 class FileManager:
     @classmethod
     def create_file(cls, file_path):
-        print("create file")
+        cls.remove_file(file_path)
         try:
             with open(file_path, 'w') as file:
                 pass  # 可以在此处写入初始内容
@@ -13,7 +13,6 @@ class FileManager:
         
     @classmethod
     def remove_file(cls, file_path):
-        print("remove file")
         if os.path.exists(file_path):
             try:
                 os.remove(file_path)

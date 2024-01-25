@@ -1,4 +1,5 @@
 import sys
+import os
 import json
 
 class JSONUtil:
@@ -24,11 +25,18 @@ class JSONUtil:
     
     @classmethod
     def get_value_from_json_path(cls, json_path, key_path):
+        json = cls.json_from_json_path(json_path)
+        res = cls.get_value_from_json(json,key_path)
+        return res
+    
+    @classmethod
+    def json_from_json_path(cls, json_path):
+        if not os.path.isfile(json_path):
+            print('CGError : JSON File Not Exist')
+            return None
         with open(json_path) as file:
             data = json.load(file)
-
-        res = cls.get_value_from_json(data,key_path)
-        return res
+        return data
     
     @classmethod
     def modify_json(cls, json_path, key_path, value):
@@ -55,7 +63,7 @@ class JSONUtil:
         try:
             with open(file_path, 'w') as file:
                 json.dump(json_dict, file, indent=4)
-            print(f"JSON written to file: {file_path}")
+            print(f"JSON : \n {cls.pretty(json_dict)} \nwritten to file: {file_path}")
         except Exception as e:
             print(f"CGError : Failed to write JSON to file: {file_path} - {e}")
             
@@ -80,7 +88,7 @@ if __name__ == '__main__':
     
     method_name = sys.argv[1]
     if not method_name.__contains__('-'):
-        sys.exit(arg='CGError : method name not specified !')
+        sys.exit('CGError : method name not specified !')
     
     if method_name.__eq__("-get"):
         # path :

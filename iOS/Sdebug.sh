@@ -1,10 +1,10 @@
 # python3 ./Utils/AES/AESParser.py 
 
-# apple_cert_path=`python3 Utils/JSONParser.py -set Config/Project/ProjectConfig.json test_key.abc luck`
+# apple_cert_path=`python3 Utils/JSONParser.py -set iOS/Config/Project/ProjectConfig.json test_key.abc luck`
 # echo $apple_cert_path
 
 
-# apple_cert_path=`python3 Utils/JSONParser.py Config/Agent/AgentConfig.json dd.apple_cert_path`
+# apple_cert_path=`python3 Utils/JSONParser.py iOS/Config/Agent/AgentConfig.json dd.apple_cert_path`
 # echo $apple_cert_path
 
 
