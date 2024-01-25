@@ -42,6 +42,7 @@ pipeline {
 
         stage('test') {
             steps {
+                echo "steps 中 必须有 command, 不能为空"
                 // sh "./iOS/Sdebug.sh"
             }
         }
