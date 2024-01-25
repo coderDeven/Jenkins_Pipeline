@@ -30,19 +30,8 @@ pipeline {
         }
         stage('fetch_apple_cert_info') {
             steps {
-                script {
-                    echo "获取证书信息"
-                    echo "${env}"
-                    // 
-                    def agentLabel = env.NODE_LABELS.split(' ')[0]
-                    echo "Agent label: ${agentLabel}"
-
-                    echo "agent_label : ${agent_label}"
-                    // 不能直接获取 agent 
-                    // echo "${agent}"
-                }
-
-                // sh "python3 iOS/AppleCert/AppleCertManager.py ${agent} ${game_id} ${push_enable}"
+                echo "获取证书信息"
+                sh "python3 iOS/AppleCert/AppleCertManager.py ${agent_label} ${game_id} ${push_enable}"
             }
         }
         stage('aaa') {
