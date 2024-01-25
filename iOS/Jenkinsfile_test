@@ -16,6 +16,7 @@ pipeline {
             steps {
                 script {
                     AD_Type = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
+                    echo "AD_Type : ${AD_Type}"
                     Firebase_Switch = sh "python3 iOS/Params/ParamParse.py -firebase ${firebase_enable}"
                 }
             }
@@ -43,14 +44,19 @@ pipeline {
         stage('setup_unity') {
             steps {
                 script {
-                    echo "设置 Unity 参数"
+                    // echo "设置 Unity 参数"
                     // sh "python3 iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
                     echo "确定 Unity 路径"
-                    Unity_Path = sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}"
+                    // Unity_Path = sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}"
+
+                    Unity_Path=$(sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}")
+
                     // Unity_Path = sh "python3 iOS/Unity/UnityUtil.py -getpath deven unity_2019"
                     echo "Unity_Path : ${Unity_Path}"
+
+                    sh 'iOS/Unity/UnitySetup.sh'
+
                 }
-               
             }
         }
 
