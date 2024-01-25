@@ -58,10 +58,13 @@ pipeline {
                     Unity_Path = "ddddd"
                     echo "Unity_Path : ${Unity_Path}"
 
-
-                    Unity_Path=$(sh "iOS/Unity/UnitySetup.sh")
                     // 下边这一行出错
-                    echo "Unity_Path : ${Unity_Path}"
+                    // Unity_Path=$(sh "iOS/Unity/UnitySetup.sh")
+                    // echo "Unity_Path : ${Unity_Path}"
+
+                    def result = sh(script: "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
+                    echo "result : ${result}"
+
                 }
             }
         }
