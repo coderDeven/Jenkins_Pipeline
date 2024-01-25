@@ -23,22 +23,27 @@
 # Error : 不能用 params
 # ehco "${params.game_id}"
 
-my_string="Hello World"
 
-lowercase_string=$(echo "$my_string" | tr '[:upper:]' '[:lower:]')
+# my_string="Hello World"
 
-echo "Lowercase string: $lowercase_string"
+# lowercase_string=$(echo "$my_string" | tr '[:upper:]' '[:lower:]')
+
+# echo "Lowercase string: $lowercase_string"
 
 
-repoList=$(echo `pod repo list`)
-echo "repoList: ${repoList}" 
+# repoList=$(echo `pod repo list`)
+# echo "repoList: ${repoList}" 
 
-echo "\n\n"
+# echo "\n\n"
 
-repoList=$(echo "${repoList}" | tr '[:upper:]' '[:lower:]')
-echo $repoList
+# repoList=$(echo "${repoList}" | tr '[:upper:]' '[:lower:]')
+# echo $repoList
 
-$my_string 
--quit 
--batchmode 
--logFile ${}
+# $my_string 
+# -quit 
+# -batchmode 
+# -logFile ${}
+
+
+Unity_Path=$(python3 ./iOS/Unity/UnityUtil.py -getpath deven unity_2019)
+echo $Unity_Path

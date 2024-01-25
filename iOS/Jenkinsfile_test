@@ -46,7 +46,8 @@ pipeline {
                     echo "设置 Unity 参数"
                     // sh "python3 iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
                     echo "确定 Unity 路径"
-                    Unity_Path = $(sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}")
+                    // Unity_Path = $(sh "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}")
+                    Unity_Path=$(python3 ./iOS/Unity/UnityUtil.py -getpath deven unity_2019)
                     echo "Unity_Path : ${Unity_Path}"
                 }
                
