@@ -53,9 +53,10 @@ pipeline {
                     // Unity_Path = sh "python3 iOS/Unity/UnityUtil.py -getpath deven unity_2019"
                     // echo "Unity_Path : ${Unity_Path}"
 
-                    sh 'iOS/Unity/UnitySetup.sh'
+                    // sh 'iOS/Unity/UnitySetup.sh'
+                    Unity_Path = "我是一个路径 .Please"
                     // 下边这一行出错
-                    // echo "Unity_Path : ${Unity_Path}"
+                    echo "Unity_Path : ${Unity_Path}"
                 }
             }
         }
