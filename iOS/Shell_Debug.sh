@@ -11,23 +11,6 @@ pwd
 # 4. 证书获取.
 
 
-### Advertising type map start
-AD_TYPE=0
-if [ "$ad_option" == "无" ]; then
-  AD_TYPE=0
-elif [ "$ad_option" == "admob" ]; then
-  AD_TYPE=1
-elif [ "$ad_option" == "max" ]; then
-  AD_TYPE=2
-elif [ "$ad_option" == "topon" ]; then
-  AD_TYPE=4  
-fi
-
-echo "集成广告类型 ：${ad_option} -- ${AD_TYPE}"
-
-### Advertising type map end
-
-
 
 ### 处理 Firebase start 
 firebase_module_path="$WORKSPACE/Assets/CGUnityPlugins/Firebase"

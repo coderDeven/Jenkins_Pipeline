@@ -1,10 +1,27 @@
 {
-   "dd" : {
+   "platform" : {
       "export_path" : "/Users/platform/.rvm/rubies/ruby-2.6.3/bin:/Users/platform/.rvm/rubies/ruby-2.6.3/bin/pod:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH",
       "apple_cert_path" : "/Users/platform/.jenkins/workspace/Apple_Certificate_Notice",
-      "password" : "funplus"
+      "password" : "funplus",
+      "unity" : {
+         "unity_2019_path" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
+         "unity_2022_path" : "/Applications/Unity/Hub/Editor/2022.3.9f1/Unity.app/Contents/MacOS/Unity"
+      }
+   },
+   "dd" : {
+      "export_path" : "",
+      "apple_cert_path" : "",
+      "password" : "funplus",
+      "unity" : {
+         "unity_2019_path" : "",
+         "unity_2022_path" : ""
+      }
    },
    "deven" : {
-      "apple_cert_path" : "/Users/centurygame/.jenkins/workspace/Apple_Cert_Notice"
+      "apple_cert_path" : "/Users/centurygame/.jenkins/workspace/Apple_Cert_Notice",
+      "unity" : {
+         "unity_2019_path" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",
+         "unity_2022_path" : "/Applications/Unity/Hub/Editor/2022.3.3f1/Unity.app/Contents/MacOS/Unity"
+      }
    }
 }

@@ -206,6 +206,9 @@ unityPath="/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/U
 printf $unityPath
 
 
+
+### 无用的步骤 --- 
+
 if [ ! -d "$WORKSPACE/Assets/WebPlayerTemplates/dd-sdk-config/" ]; then
   mkdir $WORKSPACE/Assets/WebPlayerTemplates/dd-sdk-config/
 fi
@@ -213,11 +216,6 @@ fi
 if [ ! -d "$WORKSPACE/Assets/WebPlayerTemplates/dd-sdk-config/$bundle_id" ]; then
   mkdir $WORKSPACE/Assets/WebPlayerTemplates/dd-sdk-config/$bundle_id
 fi
-
-#if [[ -d $WORKSPACE/Packages/ ]]; then
-#    rm -rf $WORKSPACE/Packages/
-#fi
-
 
 if [[ -d $WORKSPACE/Assets/DianDianSDK/Plugins/iOS/dd-ios-sdk/Admob/ ]]; then
     rm -rf $WORKSPACE/Assets/DianDianSDK/Plugins/iOS/dd-ios-sdk/Admob/
@@ -235,6 +233,7 @@ if [[ -f $WORKSPACE/Assets/DianDianSDK/Editor/Dependencies/mopubDependencies.xml
     rm -rf $WORKSPACE/Assets/DianDianSDK/Editor/Dependencies/mopubDependencies.xml
 fi
 
+### 无用的步骤 ---
 
 
 firebaseSwitch="false"

@@ -1,7 +1,8 @@
 pipeline {
     agent { label 'deven' }
     environment {
-        AD_TYPE = 0
+        AD_Type = 0
+        Firebase_Switch = "false"
     }
     stages {
         stage('export_path') {
@@ -13,7 +14,8 @@ pipeline {
         stage('parse_param') {
             steps {
                 script {
-                    AD_TYPE = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
+                    AD_Type = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
+                    Firebase_Switch = sh "python3 iOS/Params/ParamParse.py -firebase ${firebase_enable}"
                 }
             }
         }
@@ -32,7 +34,7 @@ pipeline {
 
         stage('setup_pod_env') {
             steps {
-                echo "设置 pod 环境 --> 未完成，待测试"
+                echo "设置 pod 环境，待测试"
                 sh 'iOS/Pod/SetupPodEnv.sh'
             }
         }
@@ -40,6 +42,7 @@ pipeline {
         stage('aaa') {
             steps {
                 echo "good"
+                sh "python3 iOS/Sdebugg.py"
             }
         }
 

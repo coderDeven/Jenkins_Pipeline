@@ -16,7 +16,14 @@ class JenkinsParamParser:
         elif ad_option == "topon":
             _ad_type = 4
         return _ad_type
-
+    
+    @classmethod
+    def parse_firebase_enable(cls, firebase_enable):
+        _firebase_switch = "false"
+        if type(firebase_enable) is str and firebase_enable == "true":
+            _firebase_switch = "true"
+        return _firebase_switch
+    
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("CGError : 参数转换时缺少参数")
@@ -36,3 +43,8 @@ if __name__ == "__main__":
             sys.exit(1)
         else:
             print(ad_type)
+    
+    if method_name.__eq__("-firebase"):
+        firebase_enable = sys.argv[2]
+        firebase_switch = JenkinsParamParser.parse_firebase_enable(firebase_enable)
+        print(firebase_switch)
