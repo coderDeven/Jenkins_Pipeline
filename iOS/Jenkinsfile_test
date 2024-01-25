@@ -31,7 +31,8 @@ pipeline {
         stage('fetch_apple_cert_info') {
             steps {
                 echo "获取证书信息"
-                sh "python3 iOS/AppleCert/AppleCertManager.py ${agent} ${game_id} ${push_enable}"
+                ehco "${agent}"
+                // sh "python3 iOS/AppleCert/AppleCertManager.py ${agent} ${game_id} ${push_enable}"
             }
         }
         stage('aaa') {
