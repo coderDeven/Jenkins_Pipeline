@@ -36,6 +36,8 @@ pipeline {
                     // 
                     def agentLabel = env.NODE_LABELS.split(' ')[0]
                     echo "Agent label: ${agentLabel}"
+
+                    echo "agent_label : ${agent_label}"
                     // 不能直接获取 agent 
                     // echo "${agent}"
                 }
