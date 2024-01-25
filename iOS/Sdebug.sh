@@ -48,3 +48,7 @@
 # Unity_Path=$(python3 ./iOS/Unity/UnityUtil.py -getpath deven unity_2019)
 # Unity_Path=sh "python3 iOS/Unity/UnityUtil.py -getpath deven unity_2019"
 # echo $Unity_Path
+
+
+Unity_Path=$(sh 'iOS/Unity/UnitySetup.sh')
+echo "fuck :$Unity_Path"

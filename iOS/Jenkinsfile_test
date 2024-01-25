@@ -15,6 +15,7 @@ pipeline {
         stage('parse_param') {
             steps {
                 script {
+                    echo "这里并没有成功的转换 !"
                     AD_Type = sh "python3 iOS/Params/ParamParse.py -adoption ${ad_option}"
                     echo "AD_Type : ${AD_Type}"
                     Firebase_Switch = sh "python3 iOS/Params/ParamParse.py -firebase ${firebase_enable}"
@@ -53,8 +54,12 @@ pipeline {
                     // Unity_Path = sh "python3 iOS/Unity/UnityUtil.py -getpath deven unity_2019"
                     // echo "Unity_Path : ${Unity_Path}"
 
-                    // sh 'iOS/Unity/UnitySetup.sh'
-                    Unity_Path = "我是一个路径 .Please"
+                    
+                    Unity_Path = "ddddd"
+                    echo "Unity_Path : ${Unity_Path}"
+
+
+                    Unity_Path=$(sh 'iOS/Unity/UnitySetup.sh')
                     // 下边这一行出错
                     echo "Unity_Path : ${Unity_Path}"
                 }
@@ -81,6 +86,5 @@ pipeline {
         failure {
             echo "pipeline execution failed"
         }
-
     }
 }
