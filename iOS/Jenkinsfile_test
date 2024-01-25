@@ -54,14 +54,15 @@ pipeline {
                     // echo "Unity_Path : ${Unity_Path}"
 
                     sh 'iOS/Unity/UnitySetup.sh'
+                    // 下边这一行出错
                     // echo "Unity_Path : ${Unity_Path}"
-
                 }
             }
         }
 
         stage('xcodebuild') {
             steps {
+                echo "Unity_Path : ${Unity_Path}"
                 echo "steps 中 必须有 command, 不能为空"
                 // sh "./iOS/Sdebug.sh"
             }
