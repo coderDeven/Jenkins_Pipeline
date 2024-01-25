@@ -1,4 +1,3 @@
 {
-    "pod_env": "dev12345",
-    "pod_env_key": "prod"
+    "pod_env": "dev12345"
 }

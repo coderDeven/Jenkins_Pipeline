@@ -24,6 +24,6 @@ fi
 pod_env_key="pod_env"
 
 json_parser_script="$WORKSPACE/iOS/Utils/JSONParser.py"
-python3 $json_parser_script -set $pod_env_config_path pod_env_key $pod_env
+python3 $json_parser_script -set $pod_env_config_path $pod_env_key $pod_env
 
 source ./iOS/Pod/RemoveSDKPodSpec.sh
