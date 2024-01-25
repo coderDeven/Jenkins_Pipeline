@@ -16,7 +16,11 @@ if __name__ == '__main__':
     
     # 测试 python 脚本。直接读取 jenkins 环境变量. 
     jenkins_job_name = os.environ.get('JOB_NAME')
-    is_china = os.environ.get('firebase_enable')
+    work_space = os.environ.get('WORKSPACE')
+    is_china = os.environ.get('is_china')
+    firebase_enable = os.environ.get('firebase_enable')
     
     print(f"jenkins_job_name : {jenkins_job_name}")
     print(f"is_china : {is_china}")
+    print(f"WORKSPACE : {work_space}")
+    print(f"firebase_enable : {firebase_enable}")
