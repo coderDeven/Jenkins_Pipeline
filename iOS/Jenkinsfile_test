@@ -59,7 +59,7 @@ pipeline {
                     echo "Unity_Path : ${Unity_Path}"
 
 
-                    Unity_Path=$(sh 'iOS/Unity/UnitySetup.sh')
+                    Unity_Path=$(sh "iOS/Unity/UnitySetup.sh")
                     // 下边这一行出错
                     echo "Unity_Path : ${Unity_Path}"
                 }
