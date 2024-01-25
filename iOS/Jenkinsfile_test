@@ -35,13 +35,10 @@ pipeline {
                     echo "${env}"
                     // 
                     def agentLabel = env.NODE_LABELS.split(' ')[0]
-                    echo agentLabel 
+                    echo "Agent label: ${agentLabel}"
                     // 不能直接获取 agent 
-                    echo "${agent}"
+                    // echo "${agent}"
                 }
-                
-
-                
 
                 // sh "python3 iOS/AppleCert/AppleCertManager.py ${agent} ${game_id} ${push_enable}"
             }
