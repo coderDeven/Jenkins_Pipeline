@@ -49,8 +49,8 @@ pipeline {
         stage('setup_files') {
             steps {
                 script {
-                    echo "setup_files"
-                    //  copy ddcommon 
+                    echo "Stage: setup_files"
+                    echo "copy ddCommon.json"
                     sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -ddcommon ${WORKSPACE}"
                     if (env.is_China.toBoolean()) {
                         echo "移除 Firebase "
@@ -65,7 +65,8 @@ pipeline {
         stage('setup_unity') {
             steps {
                 script {
-                    echo "设置 Unity 参数"
+                    echo "Stage : setup_unity"
+                    echo "设置 线性颜色空间"
                     sh "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
                     echo "确定 Unity 路径"
                     def result = sh(script: "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
