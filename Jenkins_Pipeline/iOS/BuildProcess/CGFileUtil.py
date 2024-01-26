@@ -24,7 +24,7 @@ class CGFileUtil:
     @classmethod
     def copy_ddcommon(cls, workspace):
         # 读取 AppleCert.json 读取 bundle_id 
-        apple_cert_json = "Jenkins_Pipeline/iOS/Temp/AppleCert.json"
+        apple_cert_json = "/Jenkins_Pipeline/iOS/Temp/AppleCert.json"
         bundle_id_key = "bundle_id"
         bundle_id = JSONUtil.get_value_from_json_path(apple_cert_json, bundle_id_key)
         command = f"cp -f {workspace}/ddCommon.json {workspace}/Assets/WebPlayerTemplates/dd-sdk-config/{bundle_id}/"
