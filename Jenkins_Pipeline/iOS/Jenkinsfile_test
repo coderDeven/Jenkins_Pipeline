@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('export_path') {
             steps {
-                sh 'python3 Jenkins_Pipeline/iOS/Environment/SetupEnv.py'
+                // sh 'python3 Jenkins_Pipeline/iOS/Environment/SetupEnv.py'
             }
         }
         // 用于将 Jenkins 参数进行转换. 对于 Jenkins job 的设置要简单不易出错，通过脚本进行相应转换后再使用.
