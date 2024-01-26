@@ -1,5 +1,11 @@
 {
     "unity_config_decrypt_key": "sctucodm5vc9llbt61j8jpymt4kuilkw",
     "unity_build_method" : "BuildSample.BuildiOSArg",
-    "log_file" : "tempArgLog.txt"
+    "log_file" : "tempArgLog.txt",
+    "plugin_files" :[
+        "bundle_id 文件夹.",
+        "ddcommon",
+        "google-serviceinfo.plist",
+        "....."
+    ]
 }

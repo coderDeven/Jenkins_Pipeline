@@ -45,6 +45,14 @@ pipeline {
             }
         }
 
+        stage('setup_files') {
+            steps {
+                echo "setup_files"
+                //  copy ddcommon 
+                sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -ddcommon"
+            }
+        }
+
         stage('setup_unity') {
             steps {
                 script {
