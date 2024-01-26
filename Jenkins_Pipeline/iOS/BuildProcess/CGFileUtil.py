@@ -9,7 +9,10 @@ class CGFileUtil:
     @classmethod
     def remove_firebase_folder(cls, workspace):
         firebase_path = f"{workspace}/Assets/CGUnityPlugins/Firebase/Firebase"
-        shutil.rmtree(firebase_path)
+        if os.path.exists(firebase_path) and os.path.isdir(firebase_path):
+            shutil.rmtree(firebase_path)
+        else:
+            print("Firebase 文件不存在")
         
     @classmethod
     def reset_firebase_folder(cls, workspace):
