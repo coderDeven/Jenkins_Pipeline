@@ -84,6 +84,7 @@ pipeline {
 
     post {
         always {
+            sleep 10
             echo "always execution after stages"
             echo "重置 Firebase "
             sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -resetfirebase ${WORKSPACE}"
