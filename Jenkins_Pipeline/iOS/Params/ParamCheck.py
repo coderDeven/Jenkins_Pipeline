@@ -31,7 +31,7 @@ class CGParamValidator:
     
         # 2. unityConfig 可以解析成功
         unity_config_key = "unity_config"
-        project_config_iOS_path = "iOS/Config/Project/ProjectConfig.json"
+        project_config_iOS_path = "Jenkins_Pipeline/iOS/Config/Project/ProjectConfig.json"
         encrypt_unity_config_key = JSONUtil.get_value_from_json_path(project_config_iOS_path,"unity_config_decrypt_key")
         encrypted_unity_config = JSONUtil().get_value_from_json(ddcommon_dict, unity_config_key)
         plain_unity_config = CGParamLoader.load_unity_config(encrypt_unity_config_key, encrypted_unity_config)

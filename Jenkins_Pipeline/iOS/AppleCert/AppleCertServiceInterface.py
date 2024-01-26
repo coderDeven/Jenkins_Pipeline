@@ -69,7 +69,7 @@ if __name__ == '__main__':
         sys.exit(1)
     
     # 示例 :
-    # python3 iOS/AppleCert/AppleCertServiceInterface.py -pushuuid /Users/centurygame/.jenkins/workspace/Apple_Cert_Notice 20075
+    # python3 Jenkins_Pipeline/iOS/AppleCert/AppleCertServiceInterface.py -pushuuid /Users/centurygame/.jenkins/workspace/Apple_Cert_Notice 20075
     
     method_name = sys.argv[1]
     path = sys.argv[2]

@@ -8,18 +8,18 @@ pipeline {
     stages {
         stage('export_path') {
             steps {
-                sh 'python3 iOS/Environment/SetupEnv.py'
+                sh 'python3 Jenkins_Pipeline/iOS/Environment/SetupEnv.py'
             }
         }
         // 用于将 Jenkins 参数进行转换. 对于 Jenkins job 的设置要简单不易出错，通过脚本进行相应转换后再使用.
         stage('parse_param') {
             steps {
                 script {
-                    def result1 = sh(script: "python3 iOS/Params/ParamParse.py -adoption ${ad_option}", returnStdout: true).trim()
+                    def result1 = sh(script: "python3 Jenkins_Pipeline/iOS/Params/ParamParse.py -adoption ${ad_option}", returnStdout: true).trim()
                     AD_Type = result1
                     echo "AD_Type : ${AD_Type}"
 
-                    def result2 = sh(script: "python3 iOS/Params/ParamParse.py -firebase ${firebase_enable}", returnStdout: true).trim()
+                    def result2 = sh(script: "python3 Jenkins_Pipeline/iOS/Params/ParamParse.py -firebase ${firebase_enable}", returnStdout: true).trim()
                     Firebase_Switch = result2
                     echo "Firebase_Switch : ${Firebase_Switch}"
                 }
@@ -28,20 +28,20 @@ pipeline {
         // 校验 Jenkins 参数与 DDcommon 中参数是否一致.
         stage('check_param') {
             steps {
-                sh "python3 iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
+                sh "python3 Jenkins_Pipeline/iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
             }
         }
         stage('fetch_apple_cert_info') {
             steps {
                 echo "获取证书信息 :"
-                sh "python3 iOS/AppleCert/AppleCertManager.py ${NODE_AGENT_LABEL} ${game_id} ${push_enable}"
+                sh "python3 Jenkins_Pipeline/iOS/AppleCert/AppleCertManager.py ${NODE_AGENT_LABEL} ${game_id} ${push_enable}"
             }
         }
 
         stage('setup_pod_env') {
             steps {
                 echo "设置 pod 环境，待测试"
-                sh 'iOS/Pod/SetupPodEnv.sh'
+                sh 'Jenkins_Pipeline/iOS/Pod/SetupPodEnv.sh'
             }
         }
 
@@ -49,9 +49,9 @@ pipeline {
             steps {
                 script {
                     echo "设置 Unity 参数"
-                    sh "python3 iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
+                    sh "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
                     echo "确定 Unity 路径"
-                    def result = sh(script: "python3 iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
+                    def result = sh(script: "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
                     Unity_Path = result
                     echo "Unity_Path: ${Unity_Path}"
                 }
@@ -61,7 +61,7 @@ pipeline {
         stage('xcodebuild') {
             steps {
                 echo "steps 中 必须有 command, 不能为空"
-                // sh "./iOS/Sdebug.sh"
+                // sh "Jenkins_Pipeline/iOS/Sdebug.sh"
             }
         }
     }

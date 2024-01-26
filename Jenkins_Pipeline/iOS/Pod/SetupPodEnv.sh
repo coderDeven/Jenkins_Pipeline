@@ -23,7 +23,7 @@ fi
 # 将 Jenkins 选定的 Pod 环境参数 （dev/prod）写入到配置文件中.
 pod_env_key="pod_env"
 
-json_parser_script="$WORKSPACE/iOS/Utils/JSONParser.py"
+json_parser_script="$WORKSPACE/Jenkins_Pipeline/iOS/Utils/JSONParser.py"
 python3 $json_parser_script -set $pod_env_config_path $pod_env_key $pod_env
 
-source ./iOS/Pod/RemoveSDKPodSpec.sh
+source ./Jenkins_Pipeline/iOS/Pod/RemoveSDKPodSpec.sh

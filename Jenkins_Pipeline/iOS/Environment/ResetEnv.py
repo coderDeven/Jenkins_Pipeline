@@ -21,5 +21,8 @@ if __name__ == '__main':
     if not method_name.__contains__('-'):
         sys.exit('CGError : method name not specified !')
     
-    if method_name.__eq__("-firebase"):
+    if method_name.__eq__("-setupfiles"):
+        print("")
+        
+    if method_name.__eq__("-resetfirebase"):
         print("")

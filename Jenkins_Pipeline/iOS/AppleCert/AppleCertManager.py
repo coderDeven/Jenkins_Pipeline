@@ -36,7 +36,7 @@ class AppleCertManager:
             "push_uuid" : push_uuid   
         }
         
-        temp_json_path = "iOS/Temp/AppleCert.json"
+        temp_json_path = "Jenkins_Pipeline/iOS/Temp/AppleCert.json"
         
         JSONUtil.write_json_to_file(cert_info_json, temp_json_path)
         
@@ -44,7 +44,7 @@ class AppleCertManager:
     @classmethod
     def setup(cls, agent_name, game_id):
         cls._game_id = game_id
-        agent_config_path = "iOS/Config/Agent/AgentConfig.json"
+        agent_config_path = "Jenkins_Pipeline/iOS/Config/Agent/AgentConfig.json"
         key_path = f"{agent_name}.apple_cert_path"
         cls._cert_manage_service_path = JSONUtil.get_value_from_json_path(agent_config_path, key_path)
         

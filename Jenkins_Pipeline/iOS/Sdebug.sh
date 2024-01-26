@@ -50,5 +50,5 @@
 # echo $Unity_Path
 
 
-Unity_Path=$(sh 'iOS/Unity/UnitySetup.sh')
-echo "fuck :$Unity_Path"
+# Unity_Path=$(sh 'iOS/Unity/UnitySetup.sh')
+# echo "fuck :$Unity_Path"

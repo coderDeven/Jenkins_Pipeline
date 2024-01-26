@@ -17,7 +17,7 @@ class UnityUtil:
         
     @classmethod
     def get_unity_path(cls, agent_name, unity_version):
-        agent_config_path = "iOS/Config/Agent/AgentConfig.json"
+        agent_config_path = "Jenkins_Pipeline/iOS/Config/Agent/AgentConfig.json"
         key_path = f"{agent_name}.unity.{unity_version}"
         cls._unity_path = JSONUtil.get_value_from_json_path(agent_config_path, key_path)
         return cls._unity_path
