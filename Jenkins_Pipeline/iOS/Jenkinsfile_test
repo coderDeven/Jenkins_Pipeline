@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('export_path') {
             steps {
+                echo "export_path stage . necessary ? "
                 // sh 'python3 Jenkins_Pipeline/iOS/Environment/SetupEnv.py'
             }
         }
