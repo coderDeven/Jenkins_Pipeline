@@ -20,7 +20,6 @@ class CGFileUtil:
         os.system("git reset --hard")
         os.chdir(previous_dir)
         
-        
     @classmethod
     def copy_ddcommon(cls, workspace):
         # 读取 AppleCert.json 读取 bundle_id 
