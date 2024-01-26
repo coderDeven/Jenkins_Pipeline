@@ -12,7 +12,7 @@ class BuildEnv:
     # def remove_firebase_folder(cls):
         
 
-if __name__ == '__main':
+if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("CGError : 重置环境, 缺少参数")
         sys.exit(CGErrorCode.CG_Missing_Params)

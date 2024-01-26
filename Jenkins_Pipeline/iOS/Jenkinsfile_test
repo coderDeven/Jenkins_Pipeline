@@ -47,9 +47,17 @@ pipeline {
 
         stage('setup_files') {
             steps {
-                echo "setup_files"
-                //  copy ddcommon 
-                sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -ddcommon"
+                script {
+                    echo "setup_files"
+                    //  copy ddcommon 
+                    sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -ddcommon ${WORKSPACE}"
+                    if (${is_China}) {
+                        echo "移除 Firebase "
+                        sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -removefirebase ${WORKSPACE}"
+                    } else {
+                        echo "无需移除 Firebase "
+                    }   
+                }
             }
         }
 
@@ -77,6 +85,8 @@ pipeline {
     post {
         always {
             echo "always execution after stages"
+            echo "重置 Firebase "
+            sh "python3 Jenkins_Pipeline/iOS/BuildProcess/CGFileUtil.py -resetfirebase ${WORKSPACE}"
         }
         success {
             echo "pipeline execution success"
