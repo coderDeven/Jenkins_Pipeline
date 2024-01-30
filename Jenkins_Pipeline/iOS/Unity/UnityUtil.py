@@ -37,7 +37,7 @@ if __name__ == '__main__':
         color_space = sys.argv[2]
         UnityUtil.setup_linear_color_space(color_space)
         
-    if method_name.__eq__("-getpath"):
+    if method_name.__eq__("-unitypath"):
         agent_label_name = sys.argv[2]
         unity_version = sys.argv[3]
         unity_path = UnityUtil.get_unity_path(agent_label_name, unity_version)

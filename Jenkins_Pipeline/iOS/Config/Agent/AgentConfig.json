@@ -1,5 +1,6 @@
 {
    "platform" : {
+      "desc" : "主打包机 Node Label -> 在 Jenkins Node 管理中设置了此参数",
       "export_path" : "/Users/platform/.rvm/rubies/ruby-2.6.3/bin:/Users/platform/.rvm/rubies/ruby-2.6.3/bin/pod:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH",
       "apple_cert_path" : "/Users/platform/.jenkins/workspace/Apple_Certificate_Notice",
       "password" : "funplus",
@@ -9,6 +10,7 @@
       }
    },
    "dd" : {
+      "desc" : "子打包机 Node Label",
       "export_path" : "",
       "apple_cert_path" : "",
       "password" : "funplus",
@@ -18,6 +20,7 @@
       }
    },
    "deven" : {
+      "desc" : "这个节点仅供 GF 本地的测试使用",
       "apple_cert_path" : "/Users/centurygame/.jenkins/workspace/Apple_Cert_Notice",
       "unity" : {
          "unity_2019" : "/Applications/Unity/Hub/Editor/2019.4.15f1/Unity.app/Contents/MacOS/Unity",

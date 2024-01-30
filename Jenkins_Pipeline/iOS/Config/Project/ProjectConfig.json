@@ -1,5 +1,6 @@
 {
     "unity_config_decrypt_key": "sctucodm5vc9llbt61j8jpymt4kuilkw",
+    "gitlab_pod_token" : "glpat-sF9isivbtJg1_y2kRqiP",
     "unity_build_method" : "BuildSample.BuildiOSArg",
     "log_file" : "tempArgLog.txt",
     "plugin_files" :[

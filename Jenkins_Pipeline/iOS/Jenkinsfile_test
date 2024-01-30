@@ -69,9 +69,11 @@ pipeline {
                     echo "设置 线性颜色空间"
                     sh "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -colorspace ${linear_color_space}"
                     echo "确定 Unity 路径"
-                    def result = sh(script: "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -getpath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
+                    def result = sh(script: "python3 Jenkins_Pipeline/iOS/Unity/UnityUtil.py -unitypath ${NODE_AGENT_LABEL} ${unity_version}", returnStdout: true).trim()
                     Unity_Path = result
                     echo "Unity_Path: ${Unity_Path}"
+                    echo "设置 Unity 参数"
+                    sh 'Jenkins_Pipeline/iOS/Unity/SetupUnity.sh'
                 }
             }
         }
