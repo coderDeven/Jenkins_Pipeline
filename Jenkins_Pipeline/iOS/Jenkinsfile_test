@@ -1,8 +1,8 @@
 pipeline {
     agent { label 'deven' }
-    // parameters{
-    //     file(name: 'ddCommon', description: '上传 ddCommon.json')
-    // }
+    parameters{
+        file(name: 'ddCommon', description: '上传 ddCommon.json')
+    }
     environment {
         AD_Type = 0
         Firebase_Switch = "false"
