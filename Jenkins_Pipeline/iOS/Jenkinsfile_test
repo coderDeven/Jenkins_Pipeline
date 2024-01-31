@@ -15,8 +15,8 @@ pipeline {
                 script {
                     echo "测试 Jenkins!"
                     def file_in_workspace = unstashParam "ddCommon"
-                    sh "cat ${file_in_workspace}"
-                    sh "cat ${file_in_workspace} |jq '.'"
+                    // 读取 ddCommon 内容，写入到文件中
+                    sh "cat ${file_in_workspace} > ./ddCommon.json"
                 }
             }
         }
