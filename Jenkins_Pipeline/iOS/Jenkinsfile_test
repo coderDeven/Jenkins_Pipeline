@@ -1,3 +1,4 @@
+@Library('jenkinsci-unstashParam-library') _
 pipeline {
     agent { label 'deven' }
     parameters{
@@ -13,11 +14,9 @@ pipeline {
             steps {
                 script {
                     echo "测试 Jenkins!"
-                    def ddCommon_file = readFile.params.ddCommon
-                    sh "cat ${ddCommon_file}"
-                    // echo "ddCommon : ${ddCommon_file}"
-                    // writeFile file: "${WORKSPACE}/ddCommon.json", text: ddCommon_file
-                    // sh "cp ${ddCommon_file} ${workspace}/"
+                    def file_in_workspace = unstashParam "ddCommon"
+                    sh "cat ${file_in_workspace}"
+                    sh "cat ${file_in_workspace} |jq '.'"
                 }
             }
         }
