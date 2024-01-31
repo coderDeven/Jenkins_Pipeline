@@ -13,9 +13,10 @@ pipeline {
             steps {
                 script {
                     echo "测试 Jenkins!"
-                    def ddCommon_file = params.ddCommon
+                    def ddCommon_file = readFile.params.ddCommon
                     echo "ddCommon : ${ddCommon_file}"
-                    sh "cp ${ddCommon_file} ${workspace}/"
+                    writeFile file:"${WORKSPACE}/ddCommon.json", text: ddCommon_file
+                    // sh "cp ${ddCommon_file} ${workspace}/"
                 }
             }
         }
