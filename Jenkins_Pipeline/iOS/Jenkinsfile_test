@@ -1,15 +1,30 @@
 pipeline {
     agent { label 'deven' }
+    // parameters{
+    //     file(name: 'myfile', description: '上传 ddCommon.json')
+    // }
     environment {
         AD_Type = 0
         Firebase_Switch = "false"
         Unity_Path = ""
     }
     stages {
+        stage('test') {
+            steps {
+                script {
+                    echo "测试 Jenkins!"
+                    echo "ddCommon : ${ddCommon}"
+
+                }
+            }
+        }
+
+
         stage('export_path') {
             steps {
                 echo "export_path stage . necessary ? "
                 // sh 'python3 Jenkins_Pipeline/iOS/Environment/SetupEnv.py'
+                
             }
         }
         // 用于将 Jenkins 参数进行转换. 对于 Jenkins job 的设置要简单不易出错，通过脚本进行相应转换后再使用.
@@ -29,22 +44,22 @@ pipeline {
         // 校验 Jenkins 参数与 DDcommon 中参数是否一致.
         stage('check_param') {
             steps {
-                sh "python3 Jenkins_Pipeline/iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push_enable} ${firebase_enable}"
+                sh "python3 Jenkins_Pipeline/iOS/Params/ParamCheck.py ./ddCommon.json ${game_id} ${push} ${firebase_enable}"
             }
         }
         stage('fetch_apple_cert_info') {
             steps {
                 echo "获取证书信息 :"
-                sh "python3 Jenkins_Pipeline/iOS/AppleCert/AppleCertManager.py ${NODE_AGENT_LABEL} ${game_id} ${push_enable}"
+                sh "python3 Jenkins_Pipeline/iOS/AppleCert/AppleCertManager.py ${NODE_AGENT_LABEL} ${game_id} ${push}"
             }
         }
 
-        stage('setup_pod_env') {
-            steps {
-                echo "设置 pod 环境，待测试"
-                sh 'Jenkins_Pipeline/iOS/Pod/SetupPodEnv.sh'
-            }
-        }
+        // stage('setup_pod_env') {
+        //     steps {
+        //         echo "设置 pod 环境，待测试"
+        //         sh 'Jenkins_Pipeline/iOS/Pod/SetupPodEnv.sh'
+        //     }
+        // }
 
         stage('setup_files') {
             steps {

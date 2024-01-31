@@ -3,6 +3,7 @@
     "gitlab_pod_token" : "glpat-sF9isivbtJg1_y2kRqiP",
     "unity_build_method" : "BuildSample.BuildiOSArg",
     "log_file" : "tempArgLog.txt",
+    "unity_build_log_file" : "Jenkins_Pipeline/iOS/Temp/Log/unityBuildLog.txt",
     "plugin_files" :[
         "bundle_id 文件夹.",
         "ddcommon",

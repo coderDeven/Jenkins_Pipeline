@@ -1,5 +1,5 @@
 {
-   "platform" : {
+   "main_node" : {
       "desc" : "主打包机 Node Label -> 在 Jenkins Node 管理中设置了此参数",
       "export_path" : "/Users/platform/.rvm/rubies/ruby-2.6.3/bin:/Users/platform/.rvm/rubies/ruby-2.6.3/bin/pod:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH",
       "apple_cert_path" : "/Users/platform/.jenkins/workspace/Apple_Certificate_Notice",
