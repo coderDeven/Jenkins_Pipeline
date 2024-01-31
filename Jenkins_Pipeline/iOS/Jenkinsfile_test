@@ -14,8 +14,9 @@ pipeline {
                 script {
                     echo "测试 Jenkins!"
                     def ddCommon_file = readFile.params.ddCommon
-                    echo "ddCommon : ${ddCommon_file}"
-                    writeFile file:"${WORKSPACE}/ddCommon.json", text: ddCommon_file
+                    sh "cat ${ddCommon_file}"
+                    // echo "ddCommon : ${ddCommon_file}"
+                    // writeFile file: "${WORKSPACE}/ddCommon.json", text: ddCommon_file
                     // sh "cp ${ddCommon_file} ${workspace}/"
                 }
             }
